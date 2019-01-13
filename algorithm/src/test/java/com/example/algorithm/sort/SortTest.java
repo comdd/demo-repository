@@ -30,5 +30,19 @@ public class SortTest {
         System.out.println(result);
         Assert.assertEquals("结果不对",expect,result);
     }
+    @Test
+    public void bubbleSort(){
+        Sort sort = new BubbleSort();
+        List<Integer> result = sort.sort(sources);
+        System.out.println(result);
+        Assert.assertEquals("结果不对",expect,result);
+    }
+    @Test
+    public void quickSort(){
+        Sort sort = new QuickSort();
+        List<Integer> result = sort.sort(sources);
+        System.out.println(result);
+        Assert.assertEquals("结果不对",expect,result);
+    }
 
 }

@@ -21,10 +21,4 @@ public class BubbleSort implements Sort {
         return Arrays.asList(source);
     }
 
-    private void swap(Integer[] source, Integer left, Integer right) {
-        Integer tmp = source[left];
-        source[left] = source[right];
-        source[right] = tmp;
-
-    }
 }
