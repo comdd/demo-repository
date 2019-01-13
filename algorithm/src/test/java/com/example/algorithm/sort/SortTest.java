@@ -51,5 +51,12 @@ public class SortTest {
         System.out.println(result);
         Assert.assertEquals("结果不对",expect,result);
     }
+    @Test
+    public void heapSort(){
+        Sort sort = new HeapSort();
+        List<Integer> result = sort.sort(sources);
+        System.out.println(result);
+        Assert.assertEquals("结果不对",expect,result);
+    }
 
 }
