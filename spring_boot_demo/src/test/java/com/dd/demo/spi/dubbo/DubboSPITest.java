@@ -16,10 +16,10 @@ public class DubboSPITest {
     public void print() throws Exception {
         ExtensionLoader<DubboSPI> extensionLoader =
                 ExtensionLoader.getExtensionLoader(DubboSPI.class);
-        DubboSPI optimusPrime = extensionLoader.getExtension("A");
-        optimusPrime.sayHello();
-        DubboSPI bumblebee = extensionLoader.getExtension("B");
-        bumblebee.sayHello();
+        DubboSPI a = extensionLoader.getExtension("A");
+        a.sayHello();
+        DubboSPI b = extensionLoader.getExtension("B");
+        b.sayHello();
     }
 
 }
