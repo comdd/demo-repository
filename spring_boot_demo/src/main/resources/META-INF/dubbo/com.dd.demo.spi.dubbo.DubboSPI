@@ -1,2 +1,2 @@
 A=org.apache.dubbo.test.dubbo.ImplA
-B=org.apache.dubbo.test.dubbo.ImplA
+B=org.apache.dubbo.test.dubbo.ImplB
