@@ -1,2 +1,2 @@
-com.dd.demo.spi.dubbo.ImplA
-com.dd.demo.spi.dubbo.ImplA
+A=org.apache.dubbo.test.dubbo.ImplA
+B=org.apache.dubbo.test.dubbo.ImplA

@@ -16,9 +16,9 @@ public class DubboSPITest {
     public void print() throws Exception {
         ExtensionLoader<DubboSPI> extensionLoader =
                 ExtensionLoader.getExtensionLoader(DubboSPI.class);
-        DubboSPI optimusPrime = extensionLoader.getExtension("optimusPrime");
+        DubboSPI optimusPrime = extensionLoader.getExtension("A");
         optimusPrime.sayHello();
-        DubboSPI bumblebee = extensionLoader.getExtension("bumblebee");
+        DubboSPI bumblebee = extensionLoader.getExtension("B");
         bumblebee.sayHello();
     }
 
