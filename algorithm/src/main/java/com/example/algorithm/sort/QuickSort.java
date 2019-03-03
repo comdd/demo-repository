@@ -2,6 +2,7 @@ package com.example.algorithm.sort;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * Description : 快排
@@ -25,25 +26,37 @@ public class QuickSort implements Sort {
         if (fromIndex >= toIndex) {
             return;
         }
-        int i = fromIndex + 1, j = toIndex, key = source[fromIndex], index = fromIndex;
-        while (j >= i) {
-            while (j >= index && source[j] >= key) {
-                j--;
-            }
-            if (j >= index) {
-                source[index] = source[j];
-                index = j;
-            }
-            while (i <= index && source[i] <= key) {
-                i++;
-            }
-            if (i <= index) {
-                source[index] = source[i];
-                index = i;
-            }
+        int pivot;
+        Stack<Integer> stack = new Stack<>();
+        stack.push(fromIndex);
+        stack.push(toIndex);
+        while (!stack.empty()) {
+          toIndex = stack.pop();
+          fromIndex = stack.pop();
+          pivot = partion(source,fromIndex,toIndex);
+          if(pivot-1>fromIndex){
+              stack.push(fromIndex);
+              stack.push(pivot-1);
+          }
+          if(pivot+1<toIndex){
+              stack.push(pivot+1);
+              stack.push(toIndex);
+          }
         }
-        source[index] = key;
-        sort(fromIndex, index - 1, source);
-        sort(index + 1, toIndex, source);
+    }
+    private int partion(Integer[] a,int left,int right){
+        int key = a[left];
+        while(left<right){
+            while(left<right&&a[right]>=key){
+                right--;
+            }
+            a[left] = a[right];
+            while(left<right&&a[left]<=key){
+                left++;
+            }
+            a[right] = a[left];
+        }
+        a[right] = key;
+        return right;
     }
 }
