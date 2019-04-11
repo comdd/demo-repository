@@ -2,6 +2,7 @@ package com.example.algorithm.sort;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 import java.util.Stack;
 
 /**
@@ -31,32 +32,33 @@ public class QuickSort implements Sort {
         stack.push(fromIndex);
         stack.push(toIndex);
         while (!stack.empty()) {
-          toIndex = stack.pop();
-          fromIndex = stack.pop();
-          pivot = partion(source,fromIndex,toIndex);
-          if(pivot-1>fromIndex){
-              stack.push(fromIndex);
-              stack.push(pivot-1);
-          }
-          if(pivot+1<toIndex){
-              stack.push(pivot+1);
-              stack.push(toIndex);
-          }
+            toIndex = stack.pop();
+            fromIndex = stack.pop();
+            pivot = partion(source, fromIndex, toIndex);
+            if (pivot - 1 > fromIndex) {
+                stack.push(fromIndex);
+                stack.push(pivot - 1);
+            }
+            if (pivot + 1 < toIndex) {
+                stack.push(pivot + 1);
+                stack.push(toIndex);
+            }
         }
     }
-    private int partion(Integer[] a,int left,int right){
-        int key = a[left];
-        while(left<right){
-            while(left<right&&a[right]>=key){
-                right--;
+
+    private int partion(Integer[] a, int left, int right) {
+        Random random = new Random();
+        int index = random.nextInt(right - left) + left;
+        swap(a, index, right);
+        int small = left-1;
+        for(index = left;index<=right;index++){
+            if(a[index]<a[right]){
+                if(++small!=index){
+                    swap(a,index,small);
+                }
             }
-            a[left] = a[right];
-            while(left<right&&a[left]<=key){
-                left++;
-            }
-            a[right] = a[left];
         }
-        a[right] = key;
-        return right;
+        swap(a,++small,right);
+        return small;
     }
 }
