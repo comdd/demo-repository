@@ -8,7 +8,7 @@ package com.example.algorithm;
  */
 public class EightQueen {
     private static final int QUEENNUM = 1;
-    private static int count = 0;
+    private static int sum = 0;
 
     public int sumEigthQueen(int n) {
         if (n <= 1) {
@@ -16,20 +16,21 @@ public class EightQueen {
         }
         int[][] arrays = new int[n][n];
         setQueenIndex(arrays, n, 0);
-        return count;
+        return sum;
     }
 
     private void setQueenIndex(int[][] arrays, int length, int k) {
-        while(k<length) {
-            for (int col = 0; col < length; col++) {
-                if (!hasQueen(arrays, k, col, length)) {
-                    arrays[k][col] = QUEENNUM;
-//                setQueenIndex(arrays, length, k + 1);
-//                arrays[k][col] = 0;
-                }
+        if (k == length) {
+            ++sum;
+            return ;
+        }
+        for (int col = 0; col < length; col++) {
+            if (!hasQueen(arrays, k, col, length)) {
+                arrays[k][col] = QUEENNUM;
+                setQueenIndex(arrays, length, k + 1);
+                arrays[k][col] = 0;
             }
         }
-        count++;
     }
 
     private boolean hasQueen(int[][] arrays, int row, int col, int length) {
@@ -53,6 +54,6 @@ public class EightQueen {
 
     public static void main(String[] args) {
         EightQueen eightQueen = new EightQueen();
-        System.out.println(eightQueen.sumEigthQueen(8));
+        System.out.println(eightQueen.sumEigthQueen(4));
     }
 }
