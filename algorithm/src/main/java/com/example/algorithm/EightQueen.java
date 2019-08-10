@@ -8,29 +8,29 @@ package com.example.algorithm;
  */
 public class EightQueen {
     private static final int QUEENNUM = 1;
-    private static int sum = 0;
 
     public int sumEigthQueen(int n) {
         if (n <= 1) {
             return n;
         }
         int[][] arrays = new int[n][n];
-        setQueenIndex(arrays, n, 0);
-        return sum;
+        int sum = 0;
+        return setQueenIndex(arrays, n, 0, sum);
     }
 
-    private void setQueenIndex(int[][] arrays, int length, int k) {
+    private int setQueenIndex(int[][] arrays, int length, int k, int sum) {
         if (k == length) {
             ++sum;
-            return ;
+            return sum;
         }
         for (int col = 0; col < length; col++) {
             if (!hasQueen(arrays, k, col, length)) {
                 arrays[k][col] = QUEENNUM;
-                setQueenIndex(arrays, length, k + 1);
+                sum = setQueenIndex(arrays, length, k + 1, sum);
                 arrays[k][col] = 0;
             }
         }
+        return sum;
     }
 
     private boolean hasQueen(int[][] arrays, int row, int col, int length) {
@@ -54,6 +54,6 @@ public class EightQueen {
 
     public static void main(String[] args) {
         EightQueen eightQueen = new EightQueen();
-        System.out.println(eightQueen.sumEigthQueen(4));
+        System.out.println(eightQueen.sumEigthQueen(8));
     }
 }
