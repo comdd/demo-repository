@@ -3,9 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/algorithm/algorithm.iml" filepath="$PROJECT_DIR$/algorithm/algorithm.iml" />
-      <module fileurl="file://$PROJECT_DIR$/spring_boot_demo/demo.iml" filepath="$PROJECT_DIR$/spring_boot_demo/demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/demo/demo.iml" filepath="$PROJECT_DIR$/demo/demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/demo-repository.iml" filepath="$PROJECT_DIR$/.idea/demo-repository.iml" />
       <module fileurl="file://$PROJECT_DIR$/pattern/pattern.iml" filepath="$PROJECT_DIR$/pattern/pattern.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_boot_demo/spring-boot.iml" filepath="$PROJECT_DIR$/spring_boot_demo/spring-boot.iml" />
     </modules>
   </component>
 </project>
